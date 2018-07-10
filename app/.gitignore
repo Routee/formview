@@ -1,0 +1,53 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+AndResGuardOutput/
+.DS_Store
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+
+# Android Studio
+.idea/
+.gradle
+/*/local.properties
+/*/out
+build
+.externalNativeBuild
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*~
+*.swp
+/captures
+.bugtags.log
+hs*.log
+/output
+apkinfo.pyc
+redex-src-strings-map.txt
+/.idea
+/Brower-QianbaoBusiness/*
+/Brower-QianbaoBusiness/proguard
+/app/src/main/java/com/greendao
+/app/oneapm.properties
+/app/src/main/java/com/haodaibao/fanbeiapp/greedaodb
+/tools/*.apk
+/tools/output
+/lint.xml
+/.settings/org.eclipse.buildship.core.prefs
+/app/baseandroid/release/output.json

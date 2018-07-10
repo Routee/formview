@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RouteeFormView">
+        <attr name="min_size"/>
+        <attr name="base_stroke_width" format="integer"/>
+        <attr name="base_stroke_color" format="color"/>
+        <attr name="base_text_size" format="integer"/>
+        <attr name="help_text_size" format="integer"/>
+        <attr name="help_text_margin" format="integer"/>
+        <attr name="text_margin_y" format="integer"/>
+        <attr name="point_size" format="integer"/>
+        <attr name="point_touch_size" format="integer"/>
+        <attr name="text_margin_x" format="integer"/>
+        <attr name="zero_start" format="boolean"/>
+        <attr name="helpTextBgRes" format="reference"/>
+    </declare-styleable>
+</resources>
