@@ -151,6 +151,15 @@
             android:textSize="14sp"/>
 
         <Button
+            android:id="@+id/bt_shader"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="显示/隐藏shader"
+            android:textColor="#fff"
+            android:textSize="14sp"/>
+
+        <Button
             android:id="@+id/bt_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"

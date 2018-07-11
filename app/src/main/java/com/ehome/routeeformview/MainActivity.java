@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RouteeFormView mRfv;
     private ArrayList<RouteeFormView.Units> mUnits1 = new ArrayList();
     private ArrayList<RouteeFormView.Units> mUnits2 = new ArrayList();
+    private Button  mBtShader;
+    private boolean mShaderable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEtY1 = findViewById(R.id.et_y1);
         mEtY2 = findViewById(R.id.et_y2);
         mBtDelete = findViewById(R.id.bt_delete);
+        mBtShader = findViewById(R.id.bt_shader);
         mBtAdd = findViewById(R.id.bt_add);
         mRfv = findViewById(R.id.rfv);
         mBtAdd.setOnClickListener(this);
+        mBtShader.setOnClickListener(this);
         mBtDelete.setOnClickListener(this);
         mUnits1.add(0, new RouteeFormView.Units(0, "0"));
         mUnits2.add(0, new RouteeFormView.Units(0, "0"));
@@ -46,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.bt_add:
                 addNewData();
+                break;
+            case R.id.bt_shader:
+                mRfv.setShaderable(mShaderable);
+                mShaderable = !mShaderable;
                 break;
             case R.id.bt_delete:
                 removeLastData();

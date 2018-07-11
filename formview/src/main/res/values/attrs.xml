@@ -13,5 +13,6 @@
         <attr name="text_margin_x" format="integer"/>
         <attr name="zero_start" format="boolean"/>
         <attr name="helpTextBgRes" format="reference"/>
+        <attr name="shader" format="boolean"/>
     </declare-styleable>
 </resources>

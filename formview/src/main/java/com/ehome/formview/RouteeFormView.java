@@ -37,7 +37,8 @@ import static android.view.View.MeasureSpec.AT_MOST;
 
 public class RouteeFormView extends View {
 
-    private int mHelpTextBgResId;
+    private int     mHelpTextBgResId;
+    private boolean mNeedDrawShader;
 
     public static class Units {
         public double y;
@@ -130,6 +131,7 @@ public class RouteeFormView extends View {
         mTextMarginX = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_text_margin_x, 4));
         mTextMarginY = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_text_margin_y, 4));
         mHelpTextBgResId = a.getResourceId(R.styleable.RouteeFormView_helpTextBgRes, R.drawable.bg_routee_form_view_help_text);
+        mNeedDrawShader = a.getBoolean(R.styleable.RouteeFormView_shader, false);
         mPointWidth = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_point_size, 2));
         mPointTouchWith = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_point_touch_size, 10));
         isStartZero = a.getBoolean(R.styleable.RouteeFormView_zero_start, false);
@@ -235,22 +237,24 @@ public class RouteeFormView extends View {
             mPaint.setColor(color);
             mPaint.setStyle(Paint.Style.STROKE);
             canvas.drawPath(path, mPaint);
-            path.lineTo(((Point) list.get(list.size() - 1)).x, mFormHeight + mMaxYTextHeight);
-            path.lineTo(mMaxYTextWidth + mTextMarginX, mFormHeight + mMaxYTextHeight);
-            path.lineTo(((Point) list.get(0)).x, ((Point) list.get(0)).y);
+            if (mNeedDrawShader) {
+                path.lineTo(((Point) list.get(list.size() - 1)).x, mFormHeight + mMaxYTextHeight);
+                path.lineTo(mMaxYTextWidth + mTextMarginX, mFormHeight + mMaxYTextHeight);
+                path.lineTo(((Point) list.get(0)).x, ((Point) list.get(0)).y);
 
-            mPaint.setStyle(Paint.Style.FILL);
-            mPaint.setColor(Color.WHITE);
-            canvas.drawPath(path, mPaint);
+                mPaint.setStyle(Paint.Style.FILL);
+                mPaint.setColor(Color.WHITE);
+                canvas.drawPath(path, mPaint);
 
-            Shader shder = new LinearGradient(getWidth() / 2, 0, getWidth() / 2, getHeight()
-                    , color & Color.parseColor("#44ffffff")
-                    , color & Color.parseColor("#11ffffff"), Shader.TileMode.CLAMP);
-            mPaint.setShader(shder);
-            mPaint.setStyle(Paint.Style.FILL);
-            mPaint.setColor(color);
-            canvas.drawPath(path, mPaint);
-            mPaint.setShader(null);
+                Shader shder = new LinearGradient(getWidth() / 2, 0, getWidth() / 2, getHeight()
+                        , color & Color.parseColor("#44ffffff")
+                        , color & Color.parseColor("#11ffffff"), Shader.TileMode.CLAMP);
+                mPaint.setShader(shder);
+                mPaint.setStyle(Paint.Style.FILL);
+                mPaint.setColor(color);
+                canvas.drawPath(path, mPaint);
+                mPaint.setShader(null);
+            }
         }
     }
 
@@ -641,6 +645,11 @@ public class RouteeFormView extends View {
             mDatas.put(color, map.get(color));
         }
         mPreRect = null;
+        invalidate();
+    }
+
+    public void setShaderable(boolean b) {
+        mNeedDrawShader = b;
         invalidate();
     }
 }
