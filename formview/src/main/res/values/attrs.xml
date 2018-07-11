@@ -12,7 +12,7 @@
         <attr name="point_touch_size" format="integer"/>
         <attr name="text_margin_x" format="integer"/>
         <attr name="zero_start" format="boolean"/>
-        <attr name="helpTextBgRes" format="reference"/>
+        <attr name="help_text_bg_res" format="reference"/>
         <attr name="shader" format="boolean"/>
     </declare-styleable>
 </resources>

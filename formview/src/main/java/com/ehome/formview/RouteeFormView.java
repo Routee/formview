@@ -130,7 +130,7 @@ public class RouteeFormView extends View {
         mHelpTextMargin = a.getInteger(R.styleable.RouteeFormView_help_text_margin, 8);
         mTextMarginX = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_text_margin_x, 4));
         mTextMarginY = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_text_margin_y, 4));
-        mHelpTextBgResId = a.getResourceId(R.styleable.RouteeFormView_helpTextBgRes, R.drawable.bg_routee_form_view_help_text);
+        mHelpTextBgResId = a.getResourceId(R.styleable.RouteeFormView_help_text_bg_res, R.drawable.bg_routee_form_view_help_text);
         mNeedDrawShader = a.getBoolean(R.styleable.RouteeFormView_shader, false);
         mPointWidth = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_point_size, 2));
         mPointTouchWith = DisplayUtils.dp2px(getContext(), a.getInteger(R.styleable.RouteeFormView_point_touch_size, 10));
