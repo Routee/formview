@@ -1,19 +1,14 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.jitpack'
+//apply plugin: 'com.github.dcendents.android-maven'
+//group = 'com.github.jitpack'
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
 
 
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 28
-        versionCode 100
-        versionName "1.0.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        minSdkVersion 21
+        targetSdkVersion 33
     }
 
     buildTypes {
@@ -26,8 +21,5 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
-    testImplementation 'junit:junit:4.12'
 }
